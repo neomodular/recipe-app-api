@@ -9,7 +9,7 @@ class UserManager(BaseUserManager):
         """Creates and saves a new user"""
         if not email:
             raise ValueError('User must provide an email address')
-        user = self.model(email=self.normalize_email('atento@atento.com'), **extra_fields)
+        user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
 
